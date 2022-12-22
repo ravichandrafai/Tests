@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+<appender name="fileAppender" class="org.apache.log4j.FileAppender">
+	<param name="Threshold" value="Trace" />
+	<param name="File" value="./log/logfile.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%-5p] [%l] [%C{1}] %m %n" />
+		</layout>
+</appender> 
+
+<appender name="rollAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="file" value="./log/rollingLogfile.log" />
+    <param name="MaxFileSize" value="5KB" />
+    <param name="MaxBackupIndex" value="2" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n" />
+			
+        </layout>
+</appender>
+<appender name="console" class="org.apache.log4j.ConsoleAppender">  
+        <layout class="org.apache.log4j.PatternLayout">  
+        <param name="ConversionPattern"    
+          value="%-5p %c{1} - %m%n" /> 
+        </layout>  
+</appender> 
+<!-- categories -->
+<category name="org.apache">
+    <priority value="OFF" />
+</category>
+<category name="httpclient">
+    <priority value="OFF" />
+</category>
+<category name="freemarker">
+    <priority value="OFF" />
+</category>
+
+<root>
+<priority value ="INFO" /> 
+<appender-ref ref="fileAppender"/>
+<appender-ref ref="console"/>
+</root>
+</log4j:configuration>

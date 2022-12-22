@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" data-provider-thread-count="1">
+<listeners>
+	<listener class-name="org.fai.listeners.ListenerClass"/>
+	<listener class-name="org.fai.listeners.MethodInterceptor"/>
+	<listener class-name="org.fai.listeners.AnnotationTransformer"/>
+	
+</listeners>
+  <test thread-count="1" name="Test">
+  <groups>	
+				<run>	
+						<include name="prerequisites"/>
+						<include name="smoke"/>
+						<include name="upload"/>
+  		
+        		</run>	
+       		</groups>	
+    <classes>
+   <class name="org.fai.ExtractAutomationTests.LoginTests"/>
+   <class name="org.fai.ExtractAutomationTests.UploadFileTests"/>
+   <class name="org.fai.ExtractAutomationTests.ExtractionTests"/> 
+   <class name="org.fai.ExtractAutomationTests.ManageDocumentTests"/>
+   <class name="org.fai.ExtractAutomationTests.DownloadTests"/>
+   <class name="org.fai.ExtractAutomationTests.WorkListTests"/>
+   <class name="org.fai.ExtractAutomationTests.ThreeElipsesTests"/>
+   <class name="org.fai.ExtractAutomationTests.NavigationBarTests"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
